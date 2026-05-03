@@ -12,7 +12,7 @@ export async function GET(
     await connectDB();
 
     // Find all modules for this subject
-    const modules = await Module.find({ subject });
+    const modules = await Module.find({ subject: subject as any });
     const moduleIds = modules.map((m) => m._id);
 
     // Get all questions for those modules
